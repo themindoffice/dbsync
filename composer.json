@@ -1,0 +1,22 @@
+{
+    "name": "themindoffice/dbsync",
+    "description": "Sync your environment databases",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Darrell",
+            "email": "darrell@themindoffice.nl"
+        }
+    ],
+    "require": {
+        "ifsnop/mysqldump-php": "^2.7"
+    },
+    "require-dev": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TheMindOffice\\DBSync\\ServiceProvider"
+            ]
+        }
+    }
+}
