@@ -18,5 +18,10 @@
                 "TheMindOffice\\DBSync\\ServiceProvider"
             ]
         }
+    },
+    "scripts": {
+        "post-package-install": [
+            "TheMindOffice\\DBSync\\ServiceProvider::Install"
+        ]
     }
 }

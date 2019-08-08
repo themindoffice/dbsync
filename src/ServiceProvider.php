@@ -14,6 +14,12 @@ class ServiceProvider extends SP
         Push::class
     ];
 
+    public static function install()
+    {
+        \Artisan::call('vendor:publish', ['--provider' => self::class, '--tag' => 'config']);
+        \File::append(base_path('.gitignore'), '/config/dbsync.php');
+    }
+
     public function register(){
 
     }
@@ -24,6 +30,6 @@ class ServiceProvider extends SP
 
         $this->publishes([
             __DIR__ . '/Config/dbsync.php' => config_path('dbsync.php'),
-        ]);
+        ], 'config');
     }
 }
