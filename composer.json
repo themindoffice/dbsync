@@ -8,10 +8,18 @@
             "email": "darrell@themindoffice.nl"
         }
     ],
+    "license": "MIT",
+    "keywords": [
+        "laravel"
+    ],
     "require": {
         "ifsnop/mysqldump-php": "^2.7"
     },
-    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "TheMindOffice\\DBSync\\": "./src"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
@@ -20,8 +28,9 @@
         }
     },
     "scripts": {
-        "post-install-cmd": [
-            "TheMindOffice\\DBSync\\ServiceProvider::install"
+        "post-package-install": [
+            "@php artisan vendor:publish --provider=TheMindOffice/DBSync/ServiceProvider --tag=config",
+            "echo '/config/dbsync.php' >> .gitignore"
         ]
     }
 }
