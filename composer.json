@@ -28,7 +28,7 @@
         }
     },
     "scripts": {
-        "post-package-install": [
+        "post-install-cmd": [
             "@php artisan vendor:publish --provider=TheMindOffice/DBSync/ServiceProvider --tag=config",
             "echo '/config/dbsync.php' >> .gitignore"
         ]
